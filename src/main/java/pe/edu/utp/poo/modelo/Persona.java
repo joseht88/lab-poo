@@ -19,7 +19,7 @@ import lombok.Setter;
  * @author Jose Bustamante
  */
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.JOINED) //https://medium.com/analytics-vidhya/jpa-hibernate-entity-inheritance-1f6aa7ea2eea
 @Table(name = "tbl_persona")
 @Getter
 @Setter

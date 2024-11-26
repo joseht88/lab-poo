@@ -9,7 +9,7 @@ public interface EstudianteService {
 	
 	public Optional<Estudiante> getById(Integer id);
 
-	public List<Estudiante> listAll();
+	public List<Estudiante> getAll();
 
 	public Estudiante create(Estudiante e);
 	

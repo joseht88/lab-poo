@@ -15,7 +15,7 @@ import pe.edu.utp.poo.service.PersonaService;
 @Service
 public class PersonaServiceImpl implements PersonaService {
 	
-	private PersonaRepository repo;
+	private final PersonaRepository repo;
 
 	@Transactional(readOnly = true)
 	@Override
