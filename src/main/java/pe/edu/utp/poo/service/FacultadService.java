@@ -3,17 +3,20 @@ package pe.edu.utp.poo.service;
 import java.util.List;
 import java.util.Optional;
 
+import pe.edu.utp.poo.dto.FacultadDTO;
 import pe.edu.utp.poo.modelo.Facultad;
 
 public interface FacultadService {
 	
-    public Optional<Facultad> getById(Integer id);
+    public Optional<FacultadDTO> getById(Integer id);
+    
+    public Optional<Facultad> findById(Integer id);
 
-    public List<Facultad> getAll();
+    public List<FacultadDTO> getAll();
 
-    public Facultad create(Facultad p);
+    public FacultadDTO create(FacultadDTO dto);
 
-    public Facultad update(Facultad p);
+    public FacultadDTO update(Facultad e, FacultadDTO dto);
 
     public void deleteById(Integer id);
 }
