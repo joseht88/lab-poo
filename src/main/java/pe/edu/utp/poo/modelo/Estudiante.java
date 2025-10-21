@@ -1,6 +1,7 @@
 package pe.edu.utp.poo.modelo;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.PrimaryKeyJoinColumn;
@@ -28,6 +29,7 @@ public class Estudiante extends Persona implements Serializable {
 	
 	private String codigo;
     private String emailUtp;
+    private LocalDate inicio;
     private boolean activo;
 
 }

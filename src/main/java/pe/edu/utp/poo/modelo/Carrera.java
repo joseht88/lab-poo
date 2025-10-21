@@ -23,10 +23,10 @@ import lombok.Setter;
  *
  * @author Jose Bustamante
  */
+@Entity
 @Builder
 @Getter
 @Setter
-@Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @AllArgsConstructor @NoArgsConstructor
 @Table(name = "tbl_carrera")

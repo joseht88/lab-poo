@@ -12,17 +12,20 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Jose Bustamante
  */
-@Entity
+
 @Table(name = "tbl_matricula_detalle")
 @Getter
 @Setter
 @AllArgsConstructor
 @Builder
-public class MatriculaDetalle {
+@Entity
+public class MatriculaDetalle implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,4 +36,6 @@ public class MatriculaDetalle {
     @ManyToOne
     @JoinColumn(name = "curso_id", referencedColumnName = "id")
     private Curso curso;
+    private Double nota;
+    private String estado;
 }
