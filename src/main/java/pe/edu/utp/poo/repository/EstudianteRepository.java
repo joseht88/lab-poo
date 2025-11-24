@@ -5,13 +5,15 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import pe.edu.utp.poo.modelo.Estudiante;
+import pe.edu.utp.poo.model.Estudiante;
 
 public interface EstudianteRepository extends JpaRepository<Estudiante, Integer> {
 
-	public List<Estudiante> findByActivo(boolean activo);
+	List<Estudiante> findByActivo(boolean activo);
 
-	public Optional<Estudiante> findByIdAndActivo(Integer id, boolean activo);
+	List<Estudiante> findByActivoTrue();
 
-	public Optional<Estudiante> findByIdAndActivoTrue(Integer id);
+	Optional<Estudiante> findByIdAndActivo(Integer id, boolean activo);
+
+	Optional<Estudiante> findByIdAndActivoTrue(Integer id);
 }

@@ -3,17 +3,17 @@ package pe.edu.utp.poo.service;
 import java.util.List;
 import java.util.Optional;
 
-import pe.edu.utp.poo.modelo.Curso;
+import pe.edu.utp.poo.model.Curso;
 
 public interface CursoService {
 	
-    public Optional<Curso> getById(Integer id);
+    Optional<Curso> getById(Integer id);
 
-    public List<Curso> getAll();
+    List<Curso> getAll();
 
-    public Curso create(Curso p);
+    Curso create(Curso p);
 
-    public Curso update(Curso p);
+    Curso update(Curso p);
 
-    public void deleteById(Integer id);
+    void deleteById(Integer id);
 }

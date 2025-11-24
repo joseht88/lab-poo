@@ -1,4 +1,4 @@
-package pe.edu.utp.poo.modelo;
+package pe.edu.utp.poo.model;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -17,17 +17,17 @@ import java.util.List;
 import lombok.*;
 
 /**
- *
+ * Clase Matricula universitaria
  * @author Jose Bustamante
+ * @version 1.0
  */
-
+@Entity
 @Table(name = "tbl_matricula")
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
-@Entity
 public class Matricula implements Serializable {
 
     private static final long serialVersionUID = -3078312584967845975L;

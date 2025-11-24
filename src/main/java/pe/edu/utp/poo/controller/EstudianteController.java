@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import pe.edu.utp.poo.modelo.Estudiante;
+import pe.edu.utp.poo.model.Estudiante;
 import pe.edu.utp.poo.service.EstudianteService;
 
 @Slf4j

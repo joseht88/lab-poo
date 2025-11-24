@@ -1,19 +1,24 @@
 package pe.edu.utp.poo.service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
-import pe.edu.utp.poo.modelo.Persona;
+import pe.edu.utp.poo.model.Persona;
 
 public interface PersonaService {
 	
-	public Optional<Persona> getById(Integer id);
+	Optional<Persona> getById(Integer id);
 
-	public List<Persona> getAll();
+	Optional<Persona> getByDni(String dni);
 
-	public Persona create(Persona p);
+	List<Persona> getByFeNacimiento(LocalDate feInicio, LocalDate feFin);
 
-	public Persona update(Persona p);
+	List<Persona> getAll();
 
-	public void deleteById(Integer id);
+	Persona create(Persona p);
+
+	Persona update(Persona p);
+
+	void deleteById(Integer id);
 }

@@ -1,17 +1,20 @@
-package pe.edu.utp.poo.util;
+package pe.edu.utp.poo.config;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.MappedSuperclass;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+@Getter
+@Setter
 @MappedSuperclass
-public class Auditor<T> {
+@EntityListeners(AuditingEntityListener.class)
+public abstract class Auditor<T> {
 	
 	@Column(name = "created_by", nullable = false, updatable = false)
 	@CreatedDate

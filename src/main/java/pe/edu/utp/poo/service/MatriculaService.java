@@ -3,17 +3,17 @@ package pe.edu.utp.poo.service;
 import java.util.List;
 import java.util.Optional;
 
-import pe.edu.utp.poo.modelo.Matricula;
+import pe.edu.utp.poo.model.Matricula;
 
 public interface MatriculaService {
 	
-    public Optional<Matricula> getById(Integer id);
+    Optional<Matricula> getById(Integer id);
 
-    public List<Matricula> getAll();
+    List<Matricula> getAll();
 
-    public Matricula create(Matricula p);
+    Matricula create(Matricula p);
 
-    public Matricula update(Matricula p);
+    Matricula update(Matricula p);
 
-    public void deleteById(Integer id);
+    void deleteById(Integer id);
 }

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
-import pe.edu.utp.poo.modelo.Carrera;
+import pe.edu.utp.poo.model.Carrera;
 import pe.edu.utp.poo.repository.CarreraRepository;
 import pe.edu.utp.poo.service.CarreraService;
 

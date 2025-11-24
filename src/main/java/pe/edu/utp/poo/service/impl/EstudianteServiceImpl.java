@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
-import pe.edu.utp.poo.modelo.Estudiante;
+import pe.edu.utp.poo.model.Estudiante;
 import pe.edu.utp.poo.repository.EstudianteRepository;
 import pe.edu.utp.poo.service.EstudianteService;
 

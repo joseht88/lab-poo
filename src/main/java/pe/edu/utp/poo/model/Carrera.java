@@ -1,4 +1,4 @@
-package pe.edu.utp.poo.modelo;
+package pe.edu.utp.poo.model;
 
 import java.io.Serializable;
 
@@ -20,16 +20,19 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- *
+ * Clase Carrera universitaria
  * @author Jose Bustamante
+ * @version 1.0
  */
+
 @Entity
-@Builder
+@Table(name = "tbl_carrera")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-@AllArgsConstructor @NoArgsConstructor
-@Table(name = "tbl_carrera")
 public class Carrera implements Serializable {
 
 	private static final long serialVersionUID = 1626681494940036126L;

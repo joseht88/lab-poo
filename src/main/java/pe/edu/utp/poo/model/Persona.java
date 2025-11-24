@@ -1,34 +1,30 @@
-package pe.edu.utp.poo.modelo;
+package pe.edu.utp.poo.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
-import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import pe.edu.utp.poo.config.Auditor;
 
 /**
- *
+ * Clase Persona
  * @author Jose Bustamante
+ * @version 1.0
+ * @see <a href="https://medium.com/analytics-vidhya/jpa-hibernate-entity-inheritance-1f6aa7ea2eea">...</a>
  */
+
+@Entity
 @Table(name = "tbl_persona")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-//https://medium.com/analytics-vidhya/jpa-hibernate-entity-inheritance-1f6aa7ea2eea
-public class Persona implements Serializable {
+public class Persona extends Auditor<String> implements Serializable {
 
     private static final long serialVersionUID = 183679305041137411L;
 
@@ -40,8 +36,17 @@ public class Persona implements Serializable {
     private String apellido1;
     private String apellido2;
     private String email;
+    @Column(name = "fenacimiento")
     private LocalDate feNacimiento;
     @Transient
     private int edad;
 
+    public Persona(String dni, String nombre, String apellido1, String apellido2, String email, LocalDate feNacimiento) {
+        this.dni = dni;
+        this.nombre = nombre;
+        this.apellido1 = apellido1;
+        this.apellido2 = apellido2;
+        this.email = email;
+        this.feNacimiento = feNacimiento;
+    }
 }

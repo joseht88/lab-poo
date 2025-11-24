@@ -1,6 +1,6 @@
-package pe.edu.utp.poo.collection;
+package pe.edu.utp.poo.util.collection;
 
-import pe.edu.utp.poo.modelo.Persona;
+import pe.edu.utp.poo.model.Persona;
 
 import java.util.HashMap;
 import java.util.List;
@@ -39,6 +39,12 @@ public class PersonaBDMap implements IPersonaBaseDatos {
 
     @Override
     public void delete(Integer id) {
-        this.baseDatos.remove(id);
+        Persona eliminar = getId(id);
+        this.baseDatos.remove(eliminar);
+    }
+
+    @Override
+    public boolean deleteIterator(Integer id) {
+        return true;
     }
 }

@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import pe.edu.utp.poo.dto.FacultadDTO;
 import pe.edu.utp.poo.dto.mapper.FacultadMapper;
-import pe.edu.utp.poo.modelo.Facultad;
+import pe.edu.utp.poo.model.Facultad;
 import pe.edu.utp.poo.repository.FacultadRepository;
 import pe.edu.utp.poo.service.FacultadService;
 

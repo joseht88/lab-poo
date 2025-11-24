@@ -1,4 +1,4 @@
-package pe.edu.utp.poo.modelo;
+package pe.edu.utp.poo.model;
 
 import java.io.Serializable;
 import java.util.List;
@@ -19,31 +19,34 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
+ * Clase Facultad universitaria
  *
  * @author Jose Bustamante
+ * @version 1.0
  */
-@Builder
+@Entity
+@Table(name = "tbl_facultad")
 @Getter
 @Setter
-@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-@AllArgsConstructor @NoArgsConstructor
-@Table(name = "tbl_facultad")
 public class Facultad implements Serializable {
 
-	private static final long serialVersionUID = -4119918149124890734L;
-	@Id
+    private static final long serialVersionUID = -4119918149124890734L;
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nombre;
     private boolean activo;
-    
+
     @JsonIgnoreProperties(value = "facultad")
     @OneToMany(mappedBy = "facultad", fetch = FetchType.LAZY)
     private List<Carrera> carreras;
 
-	public Facultad(Integer id) {
-		this.id = id;
-	}
-    
+    public Facultad(Integer id) {
+        this.id = id;
+    }
+
 }
