@@ -18,7 +18,7 @@ public interface PersonaService {
 
 	Persona create(Persona p);
 
-	Persona update(Persona p);
+	Persona update(Persona old, Persona p);
 
 	void deleteById(Integer id);
 }

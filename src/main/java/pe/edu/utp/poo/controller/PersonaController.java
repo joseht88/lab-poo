@@ -1,6 +1,7 @@
 package pe.edu.utp.poo.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.dao.DataAccessException;
@@ -26,7 +27,7 @@ import pe.edu.utp.poo.service.PersonaService;
 @RestController
 @RequestMapping(path = "/persona")
 public class PersonaController {
-	
+
     private final PersonaService service;
 
     @GetMapping
@@ -36,15 +37,12 @@ public class PersonaController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Persona> getById(@PathVariable(required = true) Integer id) {
-        try {
-            var objeto = service.getById(id);
-            if (objeto.isPresent()) {
-                return ResponseEntity.ok(objeto.get());
-            }
-        } catch (DataAccessException e) {
-            log.error(e.getLocalizedMessage());
+        Optional<Persona> person = service.getById(id);
+        if (person.isPresent()) {
+            return ResponseEntity.ok(person.get());
+        } else {
+            return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.notFound().build();
     }
 
     @PostMapping
@@ -58,36 +56,31 @@ public class PersonaController {
         return ResponseEntity.badRequest().build();
 
     }
-    
+
     @PutMapping("/{id}")
     public ResponseEntity<Persona> editar(@PathVariable(required = true) Integer id, @RequestBody Persona p) {
         try {
-        	var e = service.getById(id);
-        	if(e.isPresent()) {
-        		e.get().setDni(p.getDni());
-        		e.get().setNombre(p.getNombre());
-        		e.get().setApellido1(p.getApellido1());
-        		e.get().setApellido2(p.getApellido2());
-        		e.get().setEmail(p.getEmail());
-        		e.get().setFeNacimiento(p.getFeNacimiento());
-        		
-        		var up = service.create(e.get());
-        		return ResponseEntity.status(HttpStatus.CREATED).body(up);
-        	}
+            var e = service.getById(id);
+            if (e.isPresent()) {
+                var up = service.create(e.get());
+                return ResponseEntity.status(HttpStatus.CREATED).body(up);
+            }
+            return ResponseEntity.notFound().build();
         } catch (DataAccessException e) {
             log.error(e.getLocalizedMessage());
+            return ResponseEntity.badRequest().build();
+
         }
-        return ResponseEntity.badRequest().build();
     }
-    
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> eliminar(@PathVariable(required = true) Integer id) {
         try {
-        	var e = service.getById(id);
-        	if(e.isPresent()) {
-        		service.deleteById(e.get().getId());
-        		return ResponseEntity.ok().build();
-        	}
+            var e = service.getById(id);
+            if (e.isPresent()) {
+                service.deleteById(e.get().getId());
+                return ResponseEntity.ok().build();
+            }
         } catch (DataAccessException e) {
             log.error(e.getLocalizedMessage());
         }
